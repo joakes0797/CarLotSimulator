@@ -6,6 +6,7 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+            var parkingLot = new CarLot();
             //TODO
 
             //Create a seperate class file called Car
@@ -30,6 +31,8 @@ namespace CarLotSimulator
             jillCar.HonkNoise = "honk!";
             jillCar.IsDriveable = true;
 
+            parkingLot.Cars.Add(jillCar);
+
             //------------------------------ Object Initializer Syntax (assigning properties at time of instantiation)
             var benCar = new Car()
             {
@@ -41,14 +44,26 @@ namespace CarLotSimulator
                 IsDriveable = true
             };
 
+            parkingLot.Cars.Add(benCar);
+
             //------------------------------- Constructor (in-line instantiating with constructor)
-            var davidCar = new Car(1993, "Chevy", "Cheynne", "lurba lurba lurba", "AIR HORN!", false);
+            var davidCar = new Car(1993, "Chevy", "Cheyenne", "lurba lurba lurba", "AIR HORN!", false);
 
+            parkingLot.Cars.Add(davidCar);
 
+            Console.WriteLine("Jill's Car goes: ");
             jillCar.MakeEngineNoise(jillCar.EngineNoise);
+            jillCar.MakeHonkNoise(jillCar.HonkNoise);
+
+            Console.WriteLine("Ben's Car goes: ");
             benCar.MakeEngineNoise(benCar.EngineNoise);
+            benCar.MakeHonkNoise(benCar.HonkNoise);
+
+            Console.WriteLine("David's Car goes: ");
             davidCar.MakeEngineNoise(davidCar.EngineNoise);
-            
+            davidCar.MakeHonkNoise(davidCar.HonkNoise);
+
+
 
             //*************BONUS X 2*************//
 
@@ -56,6 +71,13 @@ namespace CarLotSimulator
             //It should have at least one property: a List of cars
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
+
+            Console.WriteLine("The cars in the parking lot are: ");
+            foreach (var car in parkingLot.Cars)
+            {
+                Console.WriteLine($"{car.Year} {car.Make} {car.Model}");
+            }
+
         }
     }
 }
