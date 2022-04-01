@@ -32,6 +32,8 @@ namespace CarLotSimulator
             jillCar.IsDriveable = true;
 
             parkingLot.Cars.Add(jillCar);
+            CarLot.numberOfCars ++;
+            Console.WriteLine($"Jill's Car is here. The number of cars currently in the parking lot is {CarLot.numberOfCars}.");
 
             //------------------------------ Object Initializer Syntax (assigning properties at time of instantiation)
             var benCar = new Car()
@@ -45,11 +47,19 @@ namespace CarLotSimulator
             };
 
             parkingLot.Cars.Add(benCar);
+            CarLot.numberOfCars ++;
+            Console.WriteLine($"Ben's Car is here. The number of cars currently in the parking lot is {CarLot.numberOfCars}.");
 
             //------------------------------- Constructor (in-line instantiating with constructor)
             var davidCar = new Car(1993, "Chevy", "Cheyenne", "lurba lurba lurba", "AIR HORN!", false);
 
             parkingLot.Cars.Add(davidCar);
+            CarLot.numberOfCars ++;
+            Console.WriteLine($"David's Car is here. The number of cars currently in the parking lot is {CarLot.numberOfCars}.");
+            
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine();
 
             Console.WriteLine("Jill's Car goes: ");
             jillCar.MakeEngineNoise(jillCar.EngineNoise);
@@ -63,8 +73,9 @@ namespace CarLotSimulator
             davidCar.MakeEngineNoise(davidCar.EngineNoise);
             davidCar.MakeHonkNoise(davidCar.HonkNoise);
 
-
-
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine();
             //*************BONUS X 2*************//
 
             //Create a CarLot class
